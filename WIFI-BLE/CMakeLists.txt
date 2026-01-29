@@ -5,4 +5,8 @@
 cmake_minimum_required(VERSION 3.16)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(wifiC)
+project(WIFI-BLE)
+
+message(STATUS "IDF_PATH: $ENV{IDF_PATH}")
+message(STATUS "ADF_PATH: $ENV{ADF_PATH}")
+message(STATUS "EXTRA_COMPONENT_DIRS: ${EXTRA_COMPONENT_DIRS}")
