@@ -1,0 +1,11 @@
+# Habilitar o controlador Bluetooth
+CONFIG_BT_ENABLED=y
+
+# Configurar para usar apenas BLE (Economiza memória RAM)
+CONFIG_BTDM_CTRL_MODE_BLE_ONLY=y
+CONFIG_BTDM_CTRL_MODE_BR_EDR_ONLY=n
+CONFIG_BTDM_CTRL_MODE_BTDM=n
+
+# Habilitar a pilha Bluedroid
+CONFIG_BT_BLUEDROID_ENABLED=y
+
