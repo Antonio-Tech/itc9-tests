@@ -18,7 +18,8 @@ static int s_retry_num = 0;
 #define EXAMPLE_ESP_MAXIMUM_RETRY 3
 
 static bool s_reconnect_allowed = true; 
-static bool s_infrastructure_initialized = false; 
+static bool s_system_initialized = false; 
+static bool s_driver_initialized = false;
 
 static void event_handler(void* arg, esp_event_base_t event_base,
                                 int32_t event_id, void* event_data)
@@ -48,48 +49,85 @@ static void event_handler(void* arg, esp_event_base_t event_base,
     }
 }
 
-void wifi_init_module(void) {
-    // Configura infraestrutura
-    if (!s_infrastructure_initialized) {
+esp_err_t wifi_init_module(void) {
+    esp_err_t err;
+
+    // Configura infraestrutura do sistema (Netif)
+    if (!s_system_initialized) {
         s_wifi_event_group = xEventGroupCreate();
-        ESP_ERROR_CHECK(esp_netif_init());
+        if (s_wifi_event_group == NULL) return ESP_ERR_NO_MEM;
+
+        err = esp_netif_init();
+        if (err != ESP_OK) return err;
+
+        err = esp_event_loop_create_default();
+        if (err != ESP_OK && err != ESP_ERR_INVALID_STATE) return err; // Ignora se já criado
+
         esp_netif_create_default_wifi_sta();
-        wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-        ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-        
-        ESP_ERROR_CHECK(esp_event_handler_instance_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL, NULL));
-        ESP_ERROR_CHECK(esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &event_handler, NULL, NULL));
-        
-        ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-        s_infrastructure_initialized = true;
+        s_system_initialized = true;
     }
 
-    // Liga o hardware
-    esp_err_t err = esp_wifi_start();
+    // Inicializa o Driver Wi-Fi
+    if (!s_driver_initialized) {
+        wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+        err = esp_wifi_init(&cfg);
+        if (err != ESP_OK) {
+            ESP_LOGE(TAG, "Falha ao alocar recursos do Wi-Fi: %s", esp_err_to_name(err));
+            return err;
+        }
+        
+        err = esp_event_handler_instance_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL, NULL);
+        if (err != ESP_OK) return err;
+        
+        err = esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &event_handler, NULL, NULL);
+        if (err != ESP_OK) return err;
+        
+        err = esp_wifi_set_mode(WIFI_MODE_STA);
+        if (err != ESP_OK) return err;
+        
+        s_driver_initialized = true;
+    }
+
+    // Liga o Rádio
+    err = esp_wifi_start();
     if (err == ESP_OK) {
         ESP_LOGI(TAG, "Wi-Fi Iniciado.");
+        s_reconnect_allowed = true;
     } else if (err == ESP_ERR_WIFI_STATE) {
         ESP_LOGW(TAG, "Wi-Fi ja estava ativo.");
+        return ESP_OK;
     } else {
-        ESP_ERROR_CHECK(err);
+        ESP_LOGE(TAG, "Erro ao iniciar Wi-Fi: %s", esp_err_to_name(err));
+        return err;
     }
     
-    s_reconnect_allowed = true;
+    return ESP_OK;
 }
 
-void wifi_deactivate(void) {
-    s_reconnect_allowed = false; // Impede reconexão automática
+esp_err_t wifi_deactivate(void) {
+    s_reconnect_allowed = false; 
     
-    // Desconecta se estiver conectado
     esp_wifi_disconnect();
-    
-    // Para o hardware de rádio pra economizar energia
     esp_err_t err = esp_wifi_stop();
-    if (err == ESP_OK) {
-        ESP_LOGI(TAG, "Wi-Fi desativado.");
-    } else {
-        ESP_LOGW(TAG, "Erro ao desativar Wi-Fi: %s", esp_err_to_name(err));
+    if (err == ESP_ERR_WIFI_NOT_INIT) {
+        return ESP_OK; // Já estava parado/desiniciado
     }
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Erro ao desativar Wi-Fi: %s", esp_err_to_name(err));
+        return err;
+    }
+
+    // Desinicializa o Driver
+    err = esp_wifi_deinit();
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Erro ao desinicializar driver Wi-Fi: %s", esp_err_to_name(err));
+        return err;
+    }
+
+    s_driver_initialized = false;
+    ESP_LOGI(TAG, "Wi-Fi totalmente desativado e recursos liberados.");
+    
+    return ESP_OK;
 }
 
 int wifi_scan_and_list(wifi_info_t *records) {

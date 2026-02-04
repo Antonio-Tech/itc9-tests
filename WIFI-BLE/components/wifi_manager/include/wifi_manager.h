@@ -11,7 +11,7 @@ typedef struct {
 } wifi_info_t;
 
 // Inicializa a stack WiFi
-void wifi_init_module(void);
+esp_err_t wifi_init_module(void);
 
 // Scaneia e preenche o array records. Retorna o número de APs encontrados.
 int wifi_scan_and_list(wifi_info_t *records);
@@ -20,7 +20,7 @@ int wifi_scan_and_list(wifi_info_t *records);
 esp_err_t wifi_connect(const char *ssid, const char *password);
 
 // Desliga o rádio Wi-Fi para economizar energia
-void wifi_deactivate(void);
+esp_err_t wifi_deactivate(void);
 
 // Executa o ping
 void wifi_ping(const char *target_ip, int count);
