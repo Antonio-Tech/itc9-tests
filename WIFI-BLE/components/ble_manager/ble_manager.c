@@ -172,35 +172,69 @@ static void gatts_event_handler(esp_gatts_cb_event_t event, esp_gatt_if_t gatts_
     } while (0);
 }
 
-void ble_init_module(void) {
-    // Verifica se já está habilitado para não crashar ao reentrar no menu
+esp_err_t ble_init_module(void) {
+    esp_err_t ret;
+
+    // Verifica status atual para evitar reinicialização duplicada
     if (esp_bt_controller_get_status() == ESP_BT_CONTROLLER_STATUS_ENABLED) {
         ESP_LOGI(GATTS_TAG, "BLE já está habilitado.");
-        return;
+        return ESP_OK;
     }
 
-    ESP_ERROR_CHECK(esp_bt_controller_mem_release(ESP_BT_MODE_CLASSIC_BT));
+    // Libera memória do Bluetooth Clássico para sobrar mais RAM
+    ret = esp_bt_controller_mem_release(ESP_BT_MODE_CLASSIC_BT);
+    if (ret != ESP_OK) {
+        // Se já foi liberado antes, retorna OK, senão erro
+        if (ret != ESP_ERR_INVALID_STATE) return ret; 
+    }
+
     esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
-    ESP_ERROR_CHECK(esp_bt_controller_init(&bt_cfg));
-    ESP_ERROR_CHECK(esp_bt_controller_enable(ESP_BT_MODE_BLE));
     
+    ret = esp_bt_controller_init(&bt_cfg);
+    if (ret != ESP_OK) return ret;
+
+    ret = esp_bt_controller_enable(ESP_BT_MODE_BLE);
+    if (ret != ESP_OK) return ret;
+    
+    ret = esp_bluedroid_init();
+    if (ret != ESP_OK) return ret;
+
+    ret = esp_bluedroid_enable();
+    if (ret != ESP_OK) return ret;
+    
+    // Configura Potência
     esp_ble_tx_power_set(ESP_BLE_PWR_TYPE_ADV, ESP_PWR_LVL_P9);
-    ESP_ERROR_CHECK(esp_bluedroid_init());
-    ESP_ERROR_CHECK(esp_bluedroid_enable());
-    ESP_ERROR_CHECK(esp_ble_gatts_register_callback(gatts_event_handler));
-    ESP_ERROR_CHECK(esp_ble_gap_register_callback(gap_event_handler));
-    ESP_ERROR_CHECK(esp_ble_gatts_app_register(PROFILE_APP_ID));
+
+    ret = esp_ble_gatts_register_callback(gatts_event_handler);
+    if (ret != ESP_OK) return ret;
+
+    ret = esp_ble_gap_register_callback(gap_event_handler);
+    if (ret != ESP_OK) return ret;
+
+    ret = esp_ble_gatts_app_register(PROFILE_APP_ID);
+    if (ret != ESP_OK) return ret;
     
-    ESP_LOGI(GATTS_TAG, "BLE Stack Inicializada.");
+    ESP_LOGI(GATTS_TAG, "BLE Stack Inicializada com sucesso.");
+    return ESP_OK;
 }
 
-void ble_deactivate(void) {
-    // Processo reverso para desligar o BLE
-    esp_bluedroid_disable();
-    esp_bluedroid_deinit();
-    esp_bt_controller_disable();
-    esp_bt_controller_deinit();
+esp_err_t ble_deactivate(void) {
+    esp_err_t ret;
+
+    ret = esp_bluedroid_disable();
+    if (ret != ESP_OK) return ret;
+
+    ret = esp_bluedroid_deinit();
+    if (ret != ESP_OK) return ret;
+
+    ret = esp_bt_controller_disable();
+    if (ret != ESP_OK) return ret;
+
+    ret = esp_bt_controller_deinit();
+    if (ret != ESP_OK) return ret;
+
     ESP_LOGI(GATTS_TAG, "BLE Desativado e recursos liberados.");
+    return ESP_OK;
 }
 
 void ble_run_console(void) {

@@ -46,7 +46,15 @@ bool is_numeric_string(const char *str) {
 }
 
 void wifi_menu_workflow() {
-    wifi_init_module(); // Inicia e Liga o Wi-Fi
+    wifi_init_module(); 
+
+    // Tenta iniciar o Wi-Fi e verifica erro
+    esp_err_t err = wifi_init_module(); 
+    if (err != ESP_OK) {
+        printf("ERRO CRITICO: Nao foi possivel iniciar o modulo Wi-Fi (0x%x).\n", err);
+        printf("Verifique o hardware ou reinicie o sistema.\n");
+        return; 
+    }
     
     // Scan
     wifi_info_t ap_list[MAX_SCAN_RECORDS];
@@ -138,12 +146,16 @@ void app_main(void) {
 
         if (option[0] == '1') {
             wifi_menu_workflow();
-            // Ao retornar aqui, o wifi_deactivate já foi chamado
         } 
         else if (option[0] == '2') {
-            ble_init_module(); 
-            ble_run_console();
-            ble_deactivate(); 
+            esp_err_t err = ble_init_module();
+            if (err == ESP_OK) {
+                ble_run_console();
+                ble_deactivate(); 
+            } else {
+                ESP_LOGE(TAG, "Falha ao iniciar Bluetooth: %s", esp_err_to_name(err));
+                printf("Erro ao iniciar subsistema Bluetooth.\n");
+            }
         } 
         else {
             printf("Opcao invalida.\n");
