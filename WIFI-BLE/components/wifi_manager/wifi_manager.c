@@ -152,7 +152,13 @@ int wifi_scan_and_list(wifi_info_t *records) {
     uint16_t limit = (ap_count > MAX_SCAN_RECORDS) ? MAX_SCAN_RECORDS : ap_count;
     wifi_ap_record_t *ap_records = malloc(sizeof(wifi_ap_record_t) * limit);
     
-    ESP_ERROR_CHECK(esp_wifi_scan_get_ap_records(&limit, ap_records));
+    esp_err_t err = esp_wifi_scan_get_ap_records(&limit, ap_records);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Falha ao obter registros do scan: %s", esp_err_to_name(err));
+        free(ap_records);
+        s_reconnect_allowed = true; 
+        return 0;
+    }
 
     printf("\n--- Redes Encontradas ---\n");
     printf("%-4s | %-32s | %s\n", "ID", "SSID", "RSSI");
@@ -178,7 +184,11 @@ esp_err_t wifi_connect(const char *ssid, const char *password) {
     strncpy((char *)wifi_config.sta.password, password, sizeof(wifi_config.sta.password));
     wifi_config.sta.threshold.authmode = WIFI_AUTH_WPA2_PSK;
 
-    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
+    esp_err_t err = esp_wifi_set_config(WIFI_IF_STA, &wifi_config);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Falha ao configurar credenciais Wi-Fi: %s", esp_err_to_name(err));
+        return err;
+    }
     
     ESP_LOGI(TAG, "Conectando a %s...", ssid);
     xEventGroupClearBits(s_wifi_event_group, WIFI_CONNECTED_BIT | WIFI_FAIL_BIT);
