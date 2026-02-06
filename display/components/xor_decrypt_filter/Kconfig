@@ -1,0 +1,9 @@
+menu "XOR Decryption Filter Configuration"
+
+config USE_ENCRYPTION
+    bool "Enable XOR decryption in audio pipeline"
+    default y
+    help
+        Enable this to include XOR decryption filter in the audio pipeline.
+
+endmenu

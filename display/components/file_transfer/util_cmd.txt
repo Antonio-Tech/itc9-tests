@@ -1,0 +1,17 @@
+rm /sdcard/content/full/SKU-00007/PIX-ST-00063-ZH_Part2_Flight_Training_1_2_3.mp3
+nfc_sync
+join "DevTech" "abcd1234"
+file_server
+
+# Method 1: Using direct curl commands
+curl -o systemContent.json http://10.100.10.40:8080/sdcard/tmp/systemContent.json
+curl -o alarms_list.json http://10.100.10.40:8080/sdcard/tmp/alarms_list.json
+curl -o account_file.json http://10.100.10.40:8080/sdcard/tmp/account_file.json
+curl -o resource.json http://10.100.10.40:8080/sdcard/tmp/resource.json
+
+# Method 2: Using the Python client (after updating ESP32 IP)
+cd ../utils
+python3 file_transfer_client.py download tmp/systemContent.json
+python3 file_transfer_client.py download tmp/alarms_list.json
+python3 file_transfer_client.py download tmp/account_file.json
+python3 file_transfer_client.py download tmp/resource.json
