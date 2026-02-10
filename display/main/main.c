@@ -9,6 +9,7 @@
 /* Modified by Compal and Venturus teams in 2025/05 */
 
 #include <string.h>
+#include <math.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
@@ -43,7 +44,7 @@ static esp_periph_handle_t sgm_handle = NULL;
 static TaskHandle_t lvgl_task_handle = NULL;
 
 // ============================================================================
-// VARIÁVEIS 
+// VARIÁVEIS
 // ============================================================================
 bool global_plugged_in = false;
 int gVoltage = 0; // Necessário para o callback de bateria
@@ -63,19 +64,18 @@ void kalman_init(Kalman1D *kf, double init_x, double init_P, double Q, double R)
     }
 }
 
-double kalman_update(Kalman1D *kf, double z)
-{
-    if (kf) kf->x = z;
-    return z;
-}
+// ============================================================================
+// UI 
+// ============================================================================
 
-// ============================================================================
-// UI HELLO WORLD
-// ============================================================================
+#define HEART_POINTS 101 // Quantidade de pontos para formar o desenho
+
+static lv_point_t heart_point_array[HEART_POINTS];
+
 void draw_hello_world(void)
 {
     lv_obj_t *scr = lv_scr_act();
-    lv_obj_clean(scr);
+    lv_obj_clean(scr); // Limpa tela anterior
 
     static lv_style_t style_bg;
     lv_style_init(&style_bg);
@@ -86,13 +86,45 @@ void draw_hello_world(void)
     static lv_style_t style_text;
     lv_style_init(&style_text);
     lv_style_set_text_color(&style_text, lv_color_black());
-
+    
     lv_obj_t *label = lv_label_create(scr);
     lv_label_set_text(label, "Hello World!");
     lv_obj_add_style(label, &style_text, 0);
-    lv_obj_align(label, LV_ALIGN_CENTER, 0, -20);
+    // Move 40 pixels para cima para dar espaço ao coração
+    lv_obj_align(label, LV_ALIGN_CENTER, 0, -40); 
 
-    ESP_LOGI(TAG, "Hello World UI Desenhada");
+    // Calcula os pontos do Coração 
+    float scale = 3.5f; 
+    int offset_x = 120; 
+    int offset_y = 150; 
+    
+    for(int i = 0; i < HEART_POINTS; i++) {
+        float t = (float)i * (2.0f * 3.14159f) / (float)(HEART_POINTS - 1);
+        
+        // Fórmula Paramétrica do Coração
+        float x = 16.0f * pow(sin(t), 3);
+        float y = 13.0f * cos(t) - 5.0f * cos(2*t) - 2.0f * cos(3*t) - cos(4*t);
+
+        // LVGL Y cresce para baixo, invertemos Y (-y) e aplicamos o offset
+        heart_point_array[i].x = (lv_coord_t)(offset_x + (x * scale));
+        heart_point_array[i].y = (lv_coord_t)(offset_y - (y * scale)); 
+    }
+
+    // Cria o objeto LINHA
+    lv_obj_t * line = lv_line_create(scr);
+    lv_line_set_points(line, heart_point_array, HEART_POINTS);
+    
+    // Garante posição absoluta
+    lv_obj_set_pos(line, 0, 0);
+
+    // Estiliza a linha
+    lv_obj_set_style_line_width(line, 4, 0);
+    lv_obj_set_style_line_color(line, lv_color_make(255, 0, 0), 0); // Vermelho
+    lv_obj_set_style_line_rounded(line, true, 0);
+
+   
+
+    ESP_LOGI(TAG, "UI: Hello World + Coração desenhados.");
 }
 
 // ============================================================================
