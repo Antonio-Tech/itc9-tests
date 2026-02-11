@@ -1,0 +1,5 @@
+dependencies:
+  espressif/lvgl: "8.*"       # or the exact version you use
+
+overrides_path:
+  - overrides    

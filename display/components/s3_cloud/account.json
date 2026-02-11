@@ -1,0 +1,293 @@
+{
+  "traceId": "31ff1680-f34a-49d2-891f-eb25c624aa30",
+  "code": 0,
+  "message": "",
+  "result": {
+    "babyId": "68759a0d44f31264d93ac822",
+    "nfcLang": "en-us",
+    "kidCharacter": "kid5",
+    "babyPacks": [
+      {
+        "skuId": "SKU-00010",
+        "language": "en-us",
+        "contents": [
+          {
+            "contentId": "IST-00072",
+            "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/f24d7cd4aa7675942c1c9a69b39c6f94.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=vUBoNewDGsF3acB0tO8IxaBk91lh8GBidUR8O60Mcus%3D",
+            "fileSize": 42342108,
+            "filename": "PIX-ST-00072-EN_Part1_Deep_Breathing_on_the_Grassland.mp3"
+          },
+          {
+            "contentId": "IST-00074",
+            "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/92a91c91e86b24ee2bd91f3879b95bbf.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=fToTR%2BJ1y0A6rMUJZdoI1iGngu1ZvfAIeoAYu5kEzJM%3D",
+            "fileSize": 48097881,
+            "filename": "PIX-ST-00074-EN_Part2_Ocean_Deep_Breath.mp3"
+          },
+          {
+            "contentId": "IST-00076",
+            "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/50e72342cdcc9266d8cc5dbd41308b72.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=TYrBWF%2FMe7kEKxRU6eWRpS%2FGfwmRZtFVLUi2LaJ1Nrk%3D",
+            "fileSize": 47927746,
+            "filename": "PIX-ST-00076-EN_Part3_Starry_Sky_Deep_Breath.mp3"
+          }
+        ]
+      },
+      {
+        "skuId": "SKU-00013",
+        "language": "zh-tw",
+        "contents": [
+          {
+            "contentId": "IST-00013",
+            "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/eb748c82865c386a5e9665218f94afe2.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=HMRCkPtuIz4r58v4tFsmkX0I2J6ZJhgJTwNEhz9S06E%3D",
+            "fileSize": 4277684,
+            "filename": "PIX-ST-00013-ZH-Granny_Chipmunks_House.mp3"
+          },
+          {
+            "contentId": "IST-00037",
+            "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/2e2198c68f0268983b52496232e5201e.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=6uTojvGV80YuVlLk5zu3atatdPp2ejusfKpZQ0N%2BBoU%3D",
+            "fileSize": 11957426,
+            "filename": "PIX-ST-00037-ZH-Pixsee_Grandpa_Tree_is_Sick.mp3"
+          },
+          {
+            "contentId": "IST-00047",
+            "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/914dfa8949b1e1e55be5804c3e9a5eac.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=oNlPwwSaZkhdQCLARyPdAsbL0FP6S%2BFkpQHhJs8oy6M%3D",
+            "fileSize": 10911826,
+            "filename": "PIX-ST-00047-ZH-Mosquito_Bait.mp3"
+          }
+        ]
+      },
+      {
+        "skuId": "SKU-00014",
+        "language": "en-us",
+        "contents": [
+          {
+            "contentId": "IST-00014",
+            "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/78a6a9b68dabd1337c03d64ecab3e6e5.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=XfmBe0OVmkqlzYv3yTp897uH2QFjLBDZBU%2FaWG8ugNM%3D",
+            "fileSize": 4870038,
+            "filename": "PIX-ST-00014-EN-Granny_Chipmunks_House.mp3"
+          },
+          {
+            "contentId": "IST-00038",
+            "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/55481a3e8f730a7a2a91327c430c42dd.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=r7IjeU08Tusgt7ooPI1NGD6RnNjpg%2BNxCBwy78SgYIU%3D",
+            "fileSize": 12971762,
+            "filename": "PIX-ST-00038-EN-Pixsee_Grandpa_Tree_is_Sick.mp3"
+          },
+          {
+            "contentId": "IST-00048",
+            "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/20f6cf97c4abeb87f02449d3b216edfc.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=bWLG%2BRyuVir8Snoxtep9EV%2FGf6Pv93YsEoOLtHLck6k%3D",
+            "fileSize": 11656979,
+            "filename": "PIX-ST-00048-EN-Mosquito_Bait.mp3"
+          }
+        ]
+      }
+    ],
+    "alarms": [
+      {
+        "time": "11:32",
+        "period": "AM",
+        "days": [
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "audio": "https://s3stgcontent.blob.core.windows.net/system-base-material/alarmImgs/9877e8fcd124390043e52a40233247ed.mp3",
+        "fileSize": 80898,
+        "filename": "9877e8fcd124390043e52a40233247ed.mp3",
+        "isActive": true
+      }
+    ],
+    "NFCs": [
+      {
+        "sn": "shane03",
+        "linked": "",
+        "skus": [
+          {
+            "skuId": "SKU-00007",
+            "language": "zh-tw",
+            "contents": [
+              {
+                "contentId": "IST-00061",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/9dbb55f3b1e3f4b9d1cc5e01c823e317.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=vGfsaR%2BN24YAWvVKLBDhntSVK2EV04RQZx8JdX18UpE%3D",
+                "fileSize": 23927766,
+                "filename": "PIX-ST-00061-ZH_Part1_Storm_Breaker_and_FlameMasters_Spark.mp3"
+              },
+              {
+                "contentId": "IST-00063",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/67fed3665f3c12ddd4124a6356a2155b.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=a3BcjYvx9w2QA%2Fpi7HEtX2MKCdqzrG4Abyt7l9Eq2B0%3D",
+                "fileSize": 25244508,
+                "filename": "PIX-ST-00063-ZH_Part2_Flight_Training_1_2_3.mp3"
+              },
+              {
+                "contentId": "IST-00065",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/a1a3fd82eb51f0251ff1c492d18e439d.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=bv8Hn9cB4Qu0Aa7yFA2h%2BKOLNdYdltxNqDFbbBqDjTA%3D",
+                "fileSize": 23371763,
+                "filename": "PIX-ST-00065-ZH_Part3_The_Great_FireBreathing_Disaster.mp3"
+              },
+              {
+                "contentId": "IST-00067",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/4b5631a81a5679030b6e6c3955bbb67f.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=9bZ2mYr%2FWk6EZlgAIe0pzsGUFwQILjfXi0B1wdlZASI%3D",
+                "fileSize": 20813924,
+                "filename": "PIX-ST-00067-ZH_Part4_Crazy_Practice_and_the_Buzzy_Bee_Chaos.mp3"
+              },
+              {
+                "contentId": "IST-00069",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/79d528e5d89405f83ecd416c25a4924f.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=TMIidg1IGritVt7URIS1cUO%2B90B%2BFEmk7Fhvs4dTsJY%3D",
+                "fileSize": 26420306,
+                "filename": "PIX-ST-00069-ZH_Part5_The_Final_Fireworks_Finale.mp3"
+              }
+            ]
+          },
+          {
+            "skuId": "SKU-00008",
+            "language": "en-us",
+            "contents": [
+              {
+                "contentId": "IST-00062",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/ad70e356f234412c910e6671283f973e.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=85vq%2BiW2DwUlxNiiejqcJsLEpBSpZu5frRN7Ix5SoWY%3D",
+                "fileSize": 17628001,
+                "filename": "PIX-ST-00062-EN_Part1_Storm_Breaker_and_FlameMasters_Spark.mp3"
+              },
+              {
+                "contentId": "IST-00064",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/7d4c9e530d4f920f27ba80d4c70cf0e1.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=a0RQmbeaa1KiRAnj6CJxhf9akeT1bBOKzyTyM6rEtU8%3D",
+                "fileSize": 22312639,
+                "filename": "PIX-ST-00064-EN_Part2_Flight_Training_1_2_3.mp3"
+              },
+              {
+                "contentId": "IST-00066",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/7ea406496b7fa41937742b69c93b0a32.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=Gh4jWxEpFqBPAUgF0M%2FgoHXGm0pERF8QYJWMsY0wdWM%3D",
+                "fileSize": 22752932,
+                "filename": "PIX-ST-00066-EN_Part3_The_Great_FireBreathing_Disaster.mp3"
+              },
+              {
+                "contentId": "IST-00068",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/4b6fb042a2a9f095980f27f21ed894fe.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=WJ%2BxzjenARplIs4J7YCsUVr1WGIhlhyKx%2FiGfWdAdfs%3D",
+                "fileSize": 21044868,
+                "filename": "PIX-ST-00068-EN_Part4_Crazy_Practice_and_the_Buzzy_Bee_Chaos.mp3"
+              },
+              {
+                "contentId": "IST-00070",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/efd3aeca0d9a69165b84bc09f70296b8.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=ai6hN5Ks85DFVglNOwupCKS0AONzCMnXd8J8VqQL6rc%3D",
+                "fileSize": 24767396,
+                "filename": "PIX-ST-00070-EN_Part5_The_Final_Fireworks_Finale.mp3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sn": "shane04",
+        "linked": "",
+        "skus": []
+      },
+      {
+        "sn": "shane02",
+        "linked": "",
+        "skus": [
+          {
+            "skuId": "SKU-00009",
+            "language": "zh-tw",
+            "contents": [
+              {
+                "contentId": "IST-00071",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/d6a8d48c34ed068e0fae3fc98c6edd0a.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=JDdhQrnxIWePGwoKV%2FF818B0YblGFezKtLE%2BpKSi0Do%3D",
+                "fileSize": 42811972,
+                "filename": "PIX-ST-00071-ZH_Part1_Deep_Breathing_on_the_Grassland.mp3"
+              },
+              {
+                "contentId": "IST-00073",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/6bfa7d7254ef0499d0d0e82521d877d8.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=5%2Fdz6XfpuZW8lvpFXF7x06LH7OsuZZ%2Biov9Bwr8vKn0%3D",
+                "fileSize": 50263969,
+                "filename": "PIX-ST-00073-ZH_Part2_Ocean_Deep_Breath.mp3"
+              },
+              {
+                "contentId": "IST-00075",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/b5f3ccc9ced3808388d051debe6d1019.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=owJ988xgV9H%2FgG%2BGzcgyuQozCSYYBBSuU6u5i6xORbI%3D",
+                "fileSize": 49653253,
+                "filename": "PIX-ST-00075-ZH_Part3_Starry_Sky_Deep_Breath.mp3"
+              }
+            ]
+          },
+          {
+            "skuId": "SKU-00010",
+            "language": "en-us",
+            "contents": [
+              {
+                "contentId": "IST-00072",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/f24d7cd4aa7675942c1c9a69b39c6f94.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=vUBoNewDGsF3acB0tO8IxaBk91lh8GBidUR8O60Mcus%3D",
+                "fileSize": 42342108,
+                "filename": "PIX-ST-00072-EN_Part1_Deep_Breathing_on_the_Grassland.mp3"
+              },
+              {
+                "contentId": "IST-00074",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/92a91c91e86b24ee2bd91f3879b95bbf.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=fToTR%2BJ1y0A6rMUJZdoI1iGngu1ZvfAIeoAYu5kEzJM%3D",
+                "fileSize": 48097881,
+                "filename": "PIX-ST-00074-EN_Part2_Ocean_Deep_Breath.mp3"
+              },
+              {
+                "contentId": "IST-00076",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/50e72342cdcc9266d8cc5dbd41308b72.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=TYrBWF%2FMe7kEKxRU6eWRpS%2FGfwmRZtFVLUi2LaJ1Nrk%3D",
+                "fileSize": 47927746,
+                "filename": "PIX-ST-00076-EN_Part3_Starry_Sky_Deep_Breath.mp3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sn": "shane01",
+        "linked": "SKU-00007",
+        "skus": [
+          {
+            "skuId": "SKURC-shane01",
+            "language": "en-us",
+            "contents": [
+              {
+                "contentId": "SORC-4dqB1t1iiTAD1BBi",
+                "url": "https://s3stgcustomer.blob.core.windows.net/user-records/687599ec44f31264d93ac7fd/SORC-4dqB1t1iiTAD1BBi.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=qpM73JLl3dBOou2NtcOBliQ0%2BX0YUUekpZQyI5QoDu4%3D",
+                "fileSize": 3356365,
+                "filename": "SORC-4dqB1t1iiTAD1BBi.mp3"
+              }
+            ]
+          },
+          {
+            "skuId": "SKU-00007",
+            "language": "zh-tw",
+            "contents": [
+              {
+                "contentId": "IST-00061",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/9dbb55f3b1e3f4b9d1cc5e01c823e317.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=vGfsaR%2BN24YAWvVKLBDhntSVK2EV04RQZx8JdX18UpE%3D",
+                "fileSize": 23927766,
+                "filename": "PIX-ST-00061-ZH_Part1_Storm_Breaker_and_FlameMasters_Spark.mp3"
+              },
+              {
+                "contentId": "IST-00063",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/67fed3665f3c12ddd4124a6356a2155b.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=a3BcjYvx9w2QA%2Fpi7HEtX2MKCdqzrG4Abyt7l9Eq2B0%3D",
+                "fileSize": 25244508,
+                "filename": "PIX-ST-00063-ZH_Part2_Flight_Training_1_2_3.mp3"
+              },
+              {
+                "contentId": "IST-00065",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/a1a3fd82eb51f0251ff1c492d18e439d.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=bv8Hn9cB4Qu0Aa7yFA2h%2BKOLNdYdltxNqDFbbBqDjTA%3D",
+                "fileSize": 23371763,
+                "filename": "PIX-ST-00065-ZH_Part3_The_Great_FireBreathing_Disaster.mp3"
+              },
+              {
+                "contentId": "IST-00067",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/4b5631a81a5679030b6e6c3955bbb67f.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=9bZ2mYr%2FWk6EZlgAIe0pzsGUFwQILjfXi0B1wdlZASI%3D",
+                "fileSize": 20813924,
+                "filename": "PIX-ST-00067-ZH_Part4_Crazy_Practice_and_the_Buzzy_Bee_Chaos.mp3"
+              },
+              {
+                "contentId": "IST-00069",
+                "url": "https://s3stgcontent.blob.core.windows.net/system-media-content/story-content/79d528e5d89405f83ecd416c25a4924f.mp3?sv=2025-05-05&st=2025-08-05T08%3A29%3A18Z&se=2025-08-06T08%3A29%3A18Z&sr=b&sp=r&sig=TMIidg1IGritVt7URIS1cUO%2B90B%2BFEmk7Fhvs4dTsJY%3D",
+                "fileSize": 26420306,
+                "filename": "PIX-ST-00069-ZH_Part5_The_Final_Fireworks_Finale.mp3"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
