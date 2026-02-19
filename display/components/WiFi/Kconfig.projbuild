@@ -1,0 +1,36 @@
+menu "S3 Wi-Fi settings"
+
+    menu "Wifi station settings"
+        config RECONNECT_TIRES
+            int "WiFi station reconnection tries"
+            default 4
+            range 1 20
+    endmenu
+
+    menu "Wifi Access Ponit settings"
+        config S3_AP_WIFI_SSID
+            string "S3 AP wifi SSID"
+            default "Pixsee"
+            help
+                SSID (network name) to connect to.
+
+        config S3_AP_WIFI_PASSWORD
+            string "S3 AP WiFi Password"
+            default "s3_password"
+            help
+                WiFi password (WPA3) to use.
+
+        config S3_AP_WIFI_CHANNEL
+            int "S3 AP WiFi Channel"
+            range 1 13
+            default 1
+            help
+                WiFi channel (network channel) to use.
+
+        config ESP_MAX_STA_CONN
+            int "Maximal STA connections"
+            default 1
+            help
+                Max number of the STA connects to AP.
+    endmenu
+endmenu

@@ -1,0 +1,9 @@
+menu "Custom Configuration"
+
+config USER_MODE
+    bool "Enable user mode"
+    default n
+    help
+        If enabled, runs firmware in user mode (custom feature flag).
+
+endmenu

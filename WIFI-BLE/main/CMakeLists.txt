@@ -1,0 +1,12 @@
+idf_component_register(SRCS 
+                            "main.c"
+                       INCLUDE_DIRS 
+                            "."
+                       REQUIRES 
+                            wifi_manager 
+                            ble_manager 
+                            log 
+                            freertos 
+                            esp_wifi 
+                            nvs_flash
+)
